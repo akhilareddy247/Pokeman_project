@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pokemon-scanner-manual-pod
+  labels:
+    app: pokemon-scanner
+spec:
+  dnsPolicy: ClusterFirstWithHostNet
+  # dnsConfig:
+  #   nameservers:
+  #     - 8.8.8.8
+  containers:
+    - name: pokemon-scanner
+      image: "local-pokemon-scanner:latest"
+      imagePullPolicy: Never
+      command: ["/bin/sh", "-c", "echo 'Pod is ready for manual execution. Use kubectl exec -it pokemon-scanner-manual-pod -- python pokemon_scanner.py <pokemon-name>' && sleep 3600"]

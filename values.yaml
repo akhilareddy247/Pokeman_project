@@ -1,0 +1,5 @@
+image:
+  repository: akhilaraju247/pokemon-scanner:latest
+  tag: latest
+  pullPolicy: IfNotPresent
+resources: {}
